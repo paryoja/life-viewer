@@ -1,5 +1,10 @@
+import { Box, Drawer, List } from '@material-ui/core';
+
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import NavItem from 'layouts/NavBar/NavItem';
 import React from 'react';
-import { Box, Divider, Drawer, Typography } from '@material-ui/core';
+
+const NavItemList = [{ title: 'Bank', path: 'bank', Icon: AccountBalanceIcon }];
 
 const NavBar: React.FC = () => {
   const content = (
@@ -10,25 +15,11 @@ const NavBar: React.FC = () => {
         height: '100%',
       }}
     >
-      <Box
-        sx={{
-          alignItems: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          p: 2,
-        }}
-      >
-        <Typography color='textPrimary' variant='h5'>
-          NavBar
-        </Typography>
-      </Box>
-      <Divider />
-      Hi
-      <Divider />
-      Hi
-      <Divider />
-      Hi
-      <Divider />
+      <List>
+        {NavItemList.map((elem, index) => {
+          return <NavItem key={index} {...elem} />;
+        })}
+      </List>
     </Box>
   );
 

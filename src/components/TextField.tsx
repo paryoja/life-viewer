@@ -16,7 +16,7 @@ interface Props {
   person?: Person;
 }
 
-export const TextField: React.FC<Props> = () => {
+const TextField: React.FC<Props> = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const divRef = useRef<HTMLDivElement>(null);
   return (
@@ -25,3 +25,5 @@ export const TextField: React.FC<Props> = () => {
     </div>
   );
 };
+
+export default TextField;
