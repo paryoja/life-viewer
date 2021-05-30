@@ -2,10 +2,10 @@ export interface Transaction {
   id: string;
   createdAt: string;
   transactionType: string;
-  transactionFromAmount: {
-    amount: number;
-    currency: string;
-  };
+  balance: string;
+  balanceCurrency: string;
+  transactionFromAmount: string;
+  transactionFromAmountCurrency: string;
 }
 
 export interface TransactionNode {

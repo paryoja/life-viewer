@@ -21,12 +21,12 @@ const ALL_TRANSACTIONS = gql`
       edges {
         node {
           id
+          balance
+          balanceCurrency
           transactionType
           createdAt
-          transactionFromAmount {
-            amount
-            currency
-          }
+          transactionFromAmount
+          transactionFromAmountCurrency
         }
       }
     }
@@ -55,8 +55,11 @@ const AccountDetailView: React.FC = () => {
         </TableCell>
         <TableCell>{node.transactionType}</TableCell>
         <TableCell>
-          {node.transactionFromAmount.amount.toLocaleString()}{' '}
-          {node.transactionFromAmount.currency}
+          {node.transactionFromAmount.toLocaleString()}{' '}
+          {node.transactionFromAmountCurrency}
+        </TableCell>
+        <TableCell>
+          {node.balance} {node.balanceCurrency}
         </TableCell>
       </TableRow>
     );
@@ -73,6 +76,7 @@ const AccountDetailView: React.FC = () => {
               <TableCell>DateTime</TableCell>
               <TableCell>거래내용</TableCell>
               <TableCell>거래금액</TableCell>
+              <TableCell>잔액</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>{tableRows}</TableBody>
